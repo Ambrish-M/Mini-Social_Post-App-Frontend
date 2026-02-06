@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import api from "../services/api";
 import PostCard from "./PostCard";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 export default function PostList({ activeTab }) {
     const { user } = useAuth();
