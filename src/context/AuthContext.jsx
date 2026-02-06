@@ -1,7 +1,7 @@
-import { createContext,  useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import api from "../services/api";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -53,20 +53,20 @@ export function AuthProvider({ children }) {
     }
   };
 
- 
+
 
   const logout = async () => {
     try {
       await api.delete("/auth/logout");
     } catch (err) {
-      
+
     } finally {
       localStorage.removeItem("token");
       setUser(null);
     }
   };
 
-  
+
   useEffect(() => {
     fetchUser();
   }, []);
